@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study - Aprenda a Estudar de Verdade</title>
-    <link rel="icon" type="image/svg+xml" href="imagens/favicon.svg">
+    <title>Kit Sólidos Geométricos</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS (via CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,25 +18,36 @@
                 extend: {
                     colors: {
                         brand: {
-                            bg: '#FBF3E7',
-                            navy: '#1B3A5C',
-                            purple: '#827FE3',
-                            coral: '#F4694A',
-                            mustard: '#F2B84B',
-                            text: '#222222'
+                            green: '#22c55e',
+                            greenDark: '#15803d',
+                            softMint: '#dcfce7',
+                            orange: '#f97316'
                         }
                     },
                     fontFamily: {
-                        title: ['Poppins', 'sans-serif'],
-                        body: ['Inter', 'sans-serif']
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'cta-breathe': 'ctaBreathe 2s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        ctaBreathe: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        }
                     }
                 }
             }
         }
     </script>
-
+    <!-- Icons (Lucide via unpkg/feather or SVGs inline) -->
     <style>
-        /* Custom Scrollbar for Carousel */
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -45,21 +55,14 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        
-        .carousel-snap {
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .carousel-item {
-            scroll-snap-align: center;
-        }
-
-        /* FAQ details marker hiding */
         details > summary {
             list-style: none;
         }
         details > summary::-webkit-details-marker {
             display: none;
+        }
+        .animate-marquee-left {
+            animation: marquee 20s linear infinite;
         }
     </style>
 
@@ -81,522 +84,626 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 </head>
-<body class="bg-brand-bg font-body text-brand-text antialiased">
-
-    <!-- 1 & 2. HEADER E HERO (ESTILO ORBI) -->
-    <div class="bg-brand-navy">
-        <!-- Header -->
-        <header class="w-full py-6 flex justify-center items-center">
-            <div class="flex items-center gap-3">
-                <!-- Logo SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
-                    <!-- Cérebro Coral -->
-                    <path d="M9.5 5A2.5 2.5 0 0 1 12 7.5v12a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 5Z" stroke="#F4694A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14.5 5A2.5 2.5 0 0 0 12 7.5v12a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 5Z" stroke="#F4694A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <!-- Capelo -->
-                    <path d="M12 1L22 5L12 9L2 5L12 1Z" fill="#1B3A5C" stroke="#FBF3E7" stroke-width="1.5" stroke-linejoin="round"/>
-                    <path d="M6 6.5V10.5C6 12 8.5 13.5 12 13.5C15.5 13.5 18 12 18 10.5V6.5" stroke="#FBF3E7" stroke-width="1.5" stroke-linecap="round"/>
-                    <!-- Borla Amarela -->
-                    <line x1="21" y1="5" x2="21" y2="11" stroke="#F2B84B" stroke-width="1.5" stroke-linecap="round"/>
-                    <circle cx="21" cy="12" r="1.5" fill="#F2B84B"/>
-                </svg>
-                <span class="font-title font-bold text-4xl text-white tracking-tight">Study</span>
+<body class="bg-white font-sans text-gray-900 antialiased">
+    <main class="min-h-screen bg-white pb-12">
+        <div class="max-w-[480px] mx-auto px-5 pt-8">
+            
+            <!-- Tag Superior -->
+            <div class="flex justify-center mb-4">
+                <span class="inline-block rounded-full bg-brand-softMint border border-brand-green/30 text-brand-greenDark font-bold text-xs px-4 py-1.5 tracking-wide uppercase">
+                    Kit Sólidos Geométricos
+                </span>
             </div>
-        </header>
-
-        <!-- Hero Content -->
-        <main class="max-w-6xl mx-auto px-4 pt-4 pb-8 flex flex-col md:flex-row items-center gap-10">
-            <div class="flex-1 text-center md:text-left text-white">
-                <h1 class="font-title text-4xl md:text-5xl lg:text-[46px] font-bold leading-[1.2] mb-5">
-                    Em apenas 7 dias, você vai estudar com muito mais foco e menos esforço!
-                </h1>
-                <p class="text-lg md:text-xl text-white/90 mb-8 font-medium max-w-lg mx-auto md:mx-0">
-                    São mais de 600 atividades e técnicas simples para ensinar você a aprender de verdade e reter qualquer conteúdo!
-                </p>
-                <a href="#oferta" onclick="fbq('track', 'InitiateCheckout');" class="inline-block bg-brand-coral hover:bg-[#E05839] active:scale-95 text-white font-title font-bold text-lg py-4 px-8 rounded-xl shadow-lg transition-all">
-                    QUERO COMEÇAR AGORA &rarr;
-                </a>
-            </div>
-            <div class="flex-1 w-full flex justify-center md:justify-end relative">
-                <img src="imagens/bannersite.png" alt="Banner do Material Study" class="w-full max-w-xl h-auto drop-shadow-2xl">
-            </div>
-        </main>
-    </div>
-    <!-- Curva Wave para conectar Hero com o Carrossel (como no Orbi) -->
-    <svg class="w-full h-12 md:h-24 block bg-brand-bg" viewBox="0 0 1440 100" preserveAspectRatio="none" style="margin-top: -1px;">
-        <path d="M0,0 L1440,0 L1440,10 C720,130 0,10 0,10 Z" fill="#1B3A5C" />
-    </svg>
-
-    <!-- 3. CARROSSEL "Conheça o material" -->
-    <section class="w-full py-12 md:py-20 bg-brand-bg text-center">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="font-title text-3xl md:text-4xl font-bold text-black mb-4">Conheça algumas das atividades do material</h2>
-            <p class="text-brand-text mb-8 flex items-center justify-center gap-2 font-medium">
-                Arraste para o lado &rarr;
+            
+            <!-- Título Principal -->
+            <h1 class="mx-auto max-w-[374px] text-[26px] font-bold text-center leading-tight">
+                Ensine Sólidos Geométricos de <span class="text-brand-greenDark">forma visual, prática e fácil de entender</span>
+            </h1>
+            
+            <p class="mx-auto mt-3 max-w-[340px] text-center text-[14px] leading-snug text-gray-700">
+                Com esse kit, sua explicação deixa de ficar só no quadro <strong class="font-bold text-brand-orange">e vira uma atividade mais visual e participativa.</strong>
             </p>
             
-            <div class="relative max-w-4xl mx-auto px-4 md:px-12 group">
-                <!-- Botão Anterior -->
-                <button onclick="scrollCarousel(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white text-brand-navy shadow-lg rounded-full w-10 h-10 flex items-center justify-center hover:bg-brand-mustard transition-colors z-10 cursor-pointer border border-gray-100 hidden md:flex" aria-label="Anterior">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
-                </button>
-
-                <div id="atividades-carousel" class="flex overflow-x-auto gap-4 md:gap-6 pb-6 hide-scrollbar carousel-snap justify-start snap-x">
-                    <!-- Imagem 1 -->
-                    <div class="carousel-item flex-none w-[85%] sm:w-[350px] md:w-[400px] h-auto bg-white border border-gray-100 rounded-xl shadow-md overflow-hidden p-1 snap-center">
-                        <img src="imagens/carrosel1.jpeg" alt="Atividade 1" class="w-full h-auto object-cover rounded-lg">
-                    </div>
-                    <!-- Imagem 2 -->
-                    <div class="carousel-item flex-none w-[85%] sm:w-[350px] md:w-[400px] h-auto bg-white border border-gray-100 rounded-xl shadow-md overflow-hidden p-1 snap-center">
-                        <img src="imagens/cassorel2.jpeg" alt="Atividade 2" class="w-full h-auto object-cover rounded-lg">
-                    </div>
+            <!-- Vídeo / Imagem Central -->
+            <div class="mx-auto mt-6 w-full max-w-[267px] relative rounded-[18px] overflow-hidden bg-black aspect-[9/16] shadow-sm cursor-pointer" onclick="activateSound()">
+                <video id="vsl-video" src="https://auladivertida.online/__l5e/assets-v1/97812e18-7f31-4b32-b39d-f95d80deaa67/vsl-web-optimized.mp4" poster="https://auladivertida.online/__l5e/assets-v1/780af601-b711-4c59-a498-f43094018d1b/vsl-poster.webp" autoplay playsinline muted loop class="absolute inset-0 h-full w-full object-cover"></video>
+                <div id="vsl-overlay" class="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/45 via-transparent to-black/10 transition-opacity duration-300">
+                    <span class="relative flex items-center gap-2.5 rounded-full bg-white/90 backdrop-blur-md px-4 py-2.5 shadow-lg ring-1 ring-white/60">
+                        <span class="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-green text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </span>
+                        <span class="relative flex flex-col items-start leading-none">
+                            <span class="text-[11.5px] font-extrabold tracking-wide text-gray-900">CLIQUE PARA ESCUTAR</span>
+                            <span class="mt-0.5 text-[10px] font-semibold text-gray-600">Ativar som</span>
+                        </span>
+                    </span>
                 </div>
-
-                <!-- Botão Próximo -->
-                <button onclick="scrollCarousel(1)" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white text-brand-navy shadow-lg rounded-full w-10 h-10 flex items-center justify-center hover:bg-brand-mustard transition-colors z-10 cursor-pointer border border-gray-100 hidden md:flex" aria-label="Próximo">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
-                </button>
             </div>
-            
-            <p class="mt-4 text-brand-text font-medium">Atividades pensadas para você sair do básico até a <span class="font-bold">aprovação!</span></p>
 
-            <a href="#oferta" class="inline-block mt-8 bg-brand-coral hover:bg-[#E05839] active:scale-95 text-white font-title font-bold text-lg py-4 px-8 rounded-xl shadow-md transition-all">
-                QUERO COMEÇAR AGORA &rarr;
+            <script>
+                function activateSound() {
+                    const video = document.getElementById('vsl-video');
+                    const overlay = document.getElementById('vsl-overlay');
+                    
+                    if (video.muted) {
+                        video.muted = false;
+                        video.currentTime = 0;
+                        video.play();
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            overlay.style.display = 'none';
+                        }, 300);
+                    } else {
+                        if (video.paused) {
+                            video.play();
+                        } else {
+                            video.pause();
+                        }
+                    }
+                }
+            </script>
+            
+            <!-- Benefícios Lista -->
+            <ul class="mx-auto mt-6 max-w-[280px] flex flex-col gap-2">
+                <li class="flex items-center gap-2.5 rounded-full border border-brand-green/15 bg-brand-softMint/70 pl-1.5 pr-4 py-1.5 shadow-sm">
+                    <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center bg-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"></path><path d="M2 6h4"></path><path d="M2 10h4"></path><path d="M2 14h4"></path><path d="M2 18h4"></path><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"></path></svg>
+                    </span>
+                    <span class="text-[12.5px] leading-snug text-gray-800">Atividade completa pronta para o caderno</span>
+                </li>
+                <li class="flex items-center gap-2.5 rounded-full border border-brand-green/15 bg-brand-softMint/70 pl-1.5 pr-4 py-1.5 shadow-sm">
+                    <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center bg-pink-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"></path><rect x="6" y="14" width="12" height="8" rx="1"></rect></svg>
+                    </span>
+                    <span class="text-[12.5px] leading-snug text-gray-800">Arquivo em PDF para imprimir quantas vezes quiser</span>
+                </li>
+                <li class="flex items-center gap-2.5 rounded-full border border-brand-green/15 bg-brand-softMint/70 pl-1.5 pr-4 py-1.5 shadow-sm">
+                    <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center bg-emerald-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg>
+                    </span>
+                    <span class="text-[12.5px] leading-snug text-gray-800">Entrega no WhatsApp e e-mail após a compra</span>
+                </li>
+            </ul>
+            
+            <!-- CTA Button -->
+            <a href="#ofertas" onclick="fbq('track', 'InitiateCheckout');" class="animate-cta-breathe mx-auto mt-6 block w-full max-w-[352px] rounded-xl bg-brand-green hover:bg-brand-greenDark transition-colors text-white font-extrabold py-4 text-[15px] tracking-wide text-center shadow-lg">
+                QUERO O KIT DE SÓLIDOS GEOMÉTRICOS
             </a>
-        </div>
-    </section>
-
-    <!-- 4. O QUE VOU RECEBER (Grid roxo escuro no Orbi -> Aqui usamos Navy) -->
-    <section class="w-full py-20 bg-brand-navy text-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="font-title text-3xl md:text-4xl font-bold text-center mb-16">O que vou receber?</h2>
             
-            <!-- Estilo de grid em duas colunas, exatamente como na imagem 4 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                <!-- Módulo 1 -->
-                <div class="flex items-start gap-5">
-                    <div class="w-24 md:w-32 shrink-0">
-                        <img src="imagens/maosagil.png" alt="Mãos Ágeis" class="w-full h-auto rounded shadow-lg hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div>
-                        <h3 class="font-title text-xl font-bold mb-1">Mãos Ágeis</h3>
-                        <p class="text-white/90 text-sm md:text-base leading-relaxed">Atividades que desenvolvem firmeza e controle na mão da criança, preparando-o para escrever com mais precisão e confiança.</p>
-                    </div>
-                </div>
-
-                <!-- Módulo 2 -->
-                <div class="flex items-start gap-5">
-                    <div class="w-24 md:w-32 shrink-0">
-                        <img src="imagens/aprenderltetras.png" alt="Aprendendo Letras" class="w-full h-auto rounded shadow-lg hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div>
-                        <h3 class="font-title text-xl font-bold mb-1">Aprendendo Letras</h3>
-                        <p class="text-white/90 text-sm md:text-base leading-relaxed">A criança vai aprender cada letra em cursivo, com traços simples que facilitam o aprendizado e ajudam a criar uma letra bonita.</p>
-                    </div>
-                </div>
-
-                <!-- Módulo 3 -->
-                <div class="flex items-start gap-5">
-                    <div class="w-24 md:w-32 shrink-0">
-                        <img src="imagens/traco.png" alt="Do Traço à Palavra" class="w-full h-auto rounded shadow-lg hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div>
-                        <h3 class="font-title text-xl font-bold mb-1">Do Traço à Palavra</h3>
-                        <p class="text-white/90 text-sm md:text-base leading-relaxed">Exercícios guiados para que a criança comece a formar frases completas com letra cursiva, ganhando autonomia e clareza na escrita.</p>
-                    </div>
-                </div>
-
-                <!-- Módulo 4 -->
-                <div class="flex items-start gap-5">
-                    <div class="w-24 md:w-32 shrink-0">
-                        <img src="imagens/escritafluente.png" alt="Escrita Fluente" class="w-full h-auto rounded shadow-lg hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div>
-                        <h3 class="font-title text-xl font-bold mb-1">Escrita Fluente</h3>
-                        <p class="text-white/90 text-sm md:text-base leading-relaxed">Pratique frases variadas que estimulam criatividade e fluidez, perfeito para deixar a letra mais rápida, natural e legível.</p>
-                    </div>
-                </div>
-                
-                <!-- Módulo 5 -->
-                <div class="flex items-start gap-5">
-                    <div class="w-24 md:w-32 shrink-0">
-                        <img src="imagens/silaba.png" alt="Brincando com Sílabas" class="w-full h-auto rounded shadow-lg hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div>
-                        <h3 class="font-title text-xl font-bold mb-1">Brincando com Sílabas</h3>
-                        <p class="text-white/90 text-sm md:text-base leading-relaxed">Exercícios para combinar letras com fluidez, formando sílabas de forma natural, um passo essencial para escrever palavras com confiança.</p>
-                    </div>
-                </div>
-
-                <!-- Módulo 6 -->
-                <div class="flex items-start gap-5">
-                    <div class="w-24 md:w-32 shrink-0">
-                        <img src="imagens/mestredaescrita.png" alt="Mestre da Escrita" class="w-full h-auto rounded shadow-lg hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div>
-                        <h3 class="font-title text-xl font-bold mb-1">Mestre da Escrita</h3>
-                        <p class="text-white/90 text-sm md:text-base leading-relaxed">Exercícios práticos para reforçar a escrita cursiva e fixar o aprendizado de forma leve, divertida e eficiente.</p>
-                    </div>
-                </div>
-
-                <!-- Módulo 7 -->
-                <div class="flex items-start gap-5">
-                    <div class="w-24 md:w-32 shrink-0">
-                        <img src="imagens/numero.png" alt="Números Cursivos" class="w-full h-auto rounded shadow-lg hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div>
-                        <h3 class="font-title text-xl font-bold mb-1">Números Cursivos</h3>
-                        <p class="text-white/90 text-sm md:text-base leading-relaxed">A criança vai aprender cada número em cursivo, com traços simples que facilitam o aprendizado e ajudam a criar um traçado bonito.</p>
-                    </div>
-                </div>
-
-                <!-- Módulo 8 (Bônus) -->
-                <div class="flex items-start gap-5">
-                    <div class="w-24 md:w-32 shrink-0">
-                        <img src="imagens/ingles.png" alt="Inglês Cursivo" class="w-full h-auto rounded shadow-lg hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div>
-                        <h3 class="font-title text-xl font-bold mb-1 flex items-center gap-2">
-                            <span>🎁</span> Inglês Cursivo
-                        </h3>
-                        <p class="text-white/90 text-sm md:text-base leading-relaxed">Frases em inglês para treinar a escrita cursiva enquanto aprende vocabulário e estrutura da língua de forma natural e divertida.</p>
-                    </div>
-                </div>
-
-                <!-- Módulo 9 (Bônus) -->
-                <div class="flex items-start gap-5 md:col-span-2 lg:col-span-1">
-                    <div class="w-24 md:w-32 shrink-0">
-                        <img src="imagens/espanhol.png" alt="Espanhol Cursivo" class="w-full h-auto rounded shadow-lg hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div>
-                        <h3 class="font-title text-xl font-bold mb-1 flex items-center gap-2">
-                            <span>🎁</span> Espanhol Cursivo
-                        </h3>
-                        <p class="text-white/90 text-sm md:text-base leading-relaxed">Atividades com frases em espanhol que ajudam a praticar a caligrafia e, ao mesmo tempo, desenvolver um novo idioma desde cedo.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-16 text-center">
-                <a href="#oferta" onclick="fbq('track', 'InitiateCheckout');" class="inline-block bg-brand-coral hover:bg-[#E05839] active:scale-95 text-white font-title font-bold text-lg py-4 px-8 rounded-xl shadow-md transition-all">
-                    QUERO RECEBER TUDO ISSO &rarr;
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. QUAIS SÃO OS BENEFÍCIOS (Icones centralizados como no Orbi) -->
-    <section class="w-full py-20 bg-brand-bg text-center">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="font-title text-3xl md:text-4xl font-bold text-black mb-16">Quais são os benefícios?</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12">
-                <!-- Benefício 1 -->
-                <div class="flex flex-col items-center">
-                    <svg class="w-32 h-32 mb-4 drop-shadow-sm" viewBox="0 0 100 100" fill="none" stroke="#1B3A5C" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
-                        <!-- Block -->
-                        <path d="M35,70 L55,80 L75,70 L75,50 L55,40 L35,50 Z" fill="#F2B84B"/>
-                        <path d="M35,50 L55,60 L75,50" fill="none"/>
-                        <path d="M55,60 L55,80" fill="none"/>
-                        <!-- Hand overlapping -->
-                        <path d="M25,40 C25,25 50,15 65,25 C75,30 80,45 65,45 C55,45 45,55 40,45 C35,35 40,25 45,30" fill="#FFF"/>
-                    </svg>
-                    <h3 class="font-title text-lg font-bold text-black mb-2 text-center">Acelera a coordenação motora</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed max-w-sm text-center">As atividades preparam a mão da criança para ter mais firmeza e controle, o que é essencial não só para a escrita, mas para muitas outras atividades do dia a dia.</p>
-                </div>
-
-                <!-- Benefício 2 -->
-                <div class="flex flex-col items-center">
-                    <svg class="w-32 h-32 mb-4 drop-shadow-sm" viewBox="0 0 100 100" fill="none" stroke="#1B3A5C" stroke-width="2.5">
-                        <circle cx="50" cy="45" r="35" fill="#F2B84B" />
-                        <circle cx="50" cy="45" r="20" fill="#FFF" />
-                        <circle cx="50" cy="45" r="8" fill="#F2B84B" />
-                        <path d="M50,45 L80,75" stroke-linecap="round" />
-                        <polygon points="73,80 87,85 82,71" fill="#FFF" stroke-linejoin="round"/>
-                    </svg>
-                    <h3 class="font-title text-lg font-bold text-black mb-2 text-center">Estimula o foco e atenção</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed max-w-sm text-center">Com atividades divertidas e progressivas, a criança se mantém engajada. Isso naturalmente aumenta a capacidade de concentração e atenção dela.</p>
-                </div>
-
-                <!-- Benefício 3 -->
-                <div class="flex flex-col items-center">
-                    <svg class="w-32 h-32 mb-4 drop-shadow-sm" viewBox="0 0 100 100" fill="none" stroke="#1B3A5C" stroke-width="2.5" stroke-linejoin="round">
-                        <rect x="35" y="15" width="30" height="30" rx="4" fill="#F2B84B"/>
-                        <text x="50" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="22" text-anchor="middle" fill="#1B3A5C" stroke="none">A</text>
-                        
-                        <rect x="15" y="50" width="30" height="30" rx="4" fill="#F2B84B"/>
-                        <text x="30" y="73" font-family="Arial, sans-serif" font-weight="bold" font-size="22" text-anchor="middle" fill="#1B3A5C" stroke="none">B</text>
-                        
-                        <rect x="55" y="50" width="30" height="30" rx="4" fill="#F2B84B"/>
-                        <text x="70" y="73" font-family="Arial, sans-serif" font-weight="bold" font-size="22" text-anchor="middle" fill="#1B3A5C" stroke="none">C</text>
-                    </svg>
-                    <h3 class="font-title text-lg font-bold text-black mb-2 text-center">Aplicação fácil e divertida</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed max-w-sm text-center">O material transforma a prática da caligrafia em uma brincadeira. A criança aprende sem sentir a pressão, tornando o processo leve e prazeroso.</p>
-                </div>
-
-                <!-- Benefício 4 -->
-                <div class="flex flex-col items-center">
-                    <svg class="w-32 h-32 mb-4 drop-shadow-sm" viewBox="0 0 100 100" fill="none" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M45,20 C25,20 15,35 15,50 C15,60 20,65 20,75 L20,85 C25,85 40,85 45,85 C55,85 65,75 65,60 C65,45 65,35 45,20 Z" fill="#F2B84B"/>
-                        <circle cx="40" cy="40" r="5" fill="#FFF"/>
-                        <circle cx="30" cy="55" r="4" fill="#FFF"/>
-                        <circle cx="50" cy="55" r="4" fill="#FFF"/>
-                        <circle cx="40" cy="70" r="4" fill="#FFF"/>
-                        <path d="M40,45 L30,51 M40,45 L50,51 M30,59 L40,66 M50,59 L40,66"/>
-                        <circle cx="75" cy="30" r="3" fill="#FFF"/>
-                        <circle cx="20" cy="30" r="2" fill="#FFF"/>
-                    </svg>
-                    <h3 class="font-title text-lg font-bold text-black mb-2 text-center">Metodologia neurocientífica</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed max-w-sm text-center">A neurociência prova que a caligrafia aprimora a atenção e a memória motora. Assim, a escrita se torna uma habilidade mais fácil e natural, essencial para o desenvolvimento da criança.</p>
-                </div>
-                
-                <!-- Benefício 5 -->
-                <div class="flex flex-col items-center">
-                    <svg class="w-32 h-32 mb-4 drop-shadow-sm" viewBox="0 0 100 100" fill="none" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M45,20 C20,20 10,40 15,60 C20,80 35,85 45,85 C55,85 70,80 75,60 C80,40 70,20 45,20 Z" fill="#F2B84B"/>
-                        <path d="M45,20 L45,85" />
-                        <path d="M25,40 C35,35 40,45 45,40 M25,60 C35,55 40,65 45,60 M65,40 C55,35 50,45 45,40 M65,60 C55,55 50,65 45,60" />
-                        <path d="M60,65 C60,55 70,50 75,55 C80,60 75,75 60,85 C45,75 40,60 45,55 C50,50 60,55 60,65 Z" fill="#FFF" stroke-width="2.5"/>
-                    </svg>
-                    <h3 class="font-title text-lg font-bold text-black mb-2 text-center">Mais confiança e autoestima</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed max-w-sm text-center">À medida que a letra melhora, a criança se sente mais capaz e segura. A frustração com a escrita é substituída pela satisfação de ver o próprio progresso.</p>
-                </div>
-                
-                <!-- Benefício 6 -->
-                <div class="flex flex-col items-center">
-                    <svg class="w-32 h-32 mb-4 drop-shadow-sm" viewBox="0 0 100 100" fill="none" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M50,15 C30,15 20,30 20,45 C20,55 30,65 35,70 L65,70 C70,65 80,55 80,45 C80,30 70,15 50,15 Z" fill="#F2B84B"/>
-                        <path d="M35,70 L65,70 L60,80 L40,80 Z" fill="#FFF"/>
-                        <path d="M42,80 L58,80 L55,85 L45,85 Z" fill="#FFF"/>
-                        <path d="M45,85 L55,85 L52,90 L48,90 Z" fill="#1B3A5C"/>
-                        <path d="M50,30 C35,30 30,45 35,55 C40,60 45,60 50,60 C55,60 60,60 65,55 C70,45 65,30 50,30 Z" fill="#FFF"/>
-                        <path d="M50,30 L50,60 M38,40 C43,38 46,42 50,40 M38,50 C43,48 46,52 50,50 M62,40 C57,38 54,42 50,40 M62,50 C57,48 54,52 50,50" />
-                    </svg>
-                    <h3 class="font-title text-lg font-bold text-black mb-2 text-center">Estímulo à criatividade</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed max-w-sm text-center">Ao ganhar fluidez e confiança na escrita, ela se sente mais motivada para criar suas próprias histórias e textos.</p>
-                </div>
-            </div>
-
-            <div class="mt-16">
-                <a href="#oferta" class="inline-block bg-brand-coral hover:bg-[#E05839] active:scale-95 text-white font-title font-bold text-lg py-4 px-8 rounded-xl shadow-md transition-all">
-                    QUERO COMEÇAR AGORA &rarr;
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. PROVA SOCIAL -->
-    <section class="w-full py-16 bg-white border-y border-gray-100">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="font-title text-3xl md:text-4xl font-bold text-black mb-2">Quem confiou, aprovou!</h2>
-            <p class="text-brand-text mb-12">Mais de 2.500 estudantes já transformaram seus estudos.</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <img src="imagens/prova1.png" alt="Prova Social WhatsApp 1" class="w-full h-auto rounded-xl shadow-md border border-gray-100 hover:scale-105 transition-transform duration-300">
-                <img src="imagens/prova2.png" alt="Prova Social WhatsApp 2" class="w-full h-auto rounded-xl shadow-md border border-gray-100 hover:scale-105 transition-transform duration-300">
-                <img src="imagens/prova3.png" alt="Prova Social WhatsApp 3" class="w-full h-auto rounded-xl shadow-md border border-gray-100 hover:scale-105 transition-transform duration-300">
-                <img src="imagens/prova4.png" alt="Prova Social WhatsApp 4" class="w-full h-auto rounded-xl shadow-md border border-gray-100 hover:scale-105 transition-transform duration-300">
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. COMO FUNCIONA -->
-    <section class="w-full py-16 bg-brand-bg text-center">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="font-title text-3xl md:text-4xl font-bold text-black mb-12">Como Funciona?</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-mustard/20">
-                    <div class="w-12 h-12 bg-brand-navy text-white font-title font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-4">1</div>
-                    <h3 class="font-title text-lg font-bold text-black mb-2">Faça o download</h3>
-                    <p class="text-sm text-gray-600">Receba acesso imediato ao PDF no seu e-mail logo após a confirmação do pagamento.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-mustard/20">
-                    <div class="w-12 h-12 bg-brand-coral text-white font-title font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-4">2</div>
-                    <h3 class="font-title text-lg font-bold text-black mb-2">Aplique o método</h3>
-                    <p class="text-sm text-gray-600">Leia as instruções e comece a aplicar as técnicas no seu dia a dia de estudos.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-mustard/20">
-                    <div class="w-12 h-12 bg-brand-mustard text-brand-navy font-title font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-4">3</div>
-                    <h3 class="font-title text-lg font-bold text-black mb-2">Acompanhe a evolução</h3>
-                    <p class="text-sm text-gray-600">Sinta o foco aumentar, a procrastinação diminuir e veja seus resultados decolarem!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. OFERTA -->
-    <section id="oferta" class="w-full py-20 bg-brand-navy">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="bg-white rounded-[2rem] p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-10 items-center">
-                
-                <div class="flex-1 w-full relative">
-                    <img src="imagens/bannersite.png" alt="Mockup do Produto" class="w-full h-auto drop-shadow-xl">
-                    <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-brand-mustard rounded-full flex items-center justify-center border-4 border-white rotate-12 shadow-md">
-                        <div class="text-center text-brand-navy">
-                            <span class="block font-title font-bold text-xl leading-none">75%</span>
-                            <span class="block text-[10px] font-bold uppercase">OFF</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex-1 w-full text-center md:text-left">
-                    <h2 class="font-title text-3xl font-bold text-brand-navy mb-6">Kit Completo Study</h2>
-                    
-                    <ul class="space-y-3 mb-8 text-left text-sm md:text-base">
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-500 font-bold">✓</span> <span class="text-gray-700">Material completo em PDF</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-500 font-bold">✓</span> <span class="text-gray-700">7 Módulos Práticos de Caligrafia</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-500 font-bold">✓</span> <span class="text-gray-700">Mais de 600 atividades passo a passo</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-500 font-bold">✓</span> <span class="text-gray-700">Acesso vitalício + Atualizações</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-500 font-bold">✓</span> <span class="text-gray-700">Suporte Dedicado</span>
-                        </li>
-                        <li class="flex items-start gap-2 mt-4 font-bold text-brand-navy">
-                            <span>🎁</span> Bônus Especial: Inglês Cursivo
-                        </li>
-                        <li class="flex items-start gap-2 font-bold text-brand-navy">
-                            <span>🎁</span> Bônus Especial: Espanhol Cursivo
-                        </li>
-                    </ul>
-                    
-                    <div class="mb-6">
-                        <p class="text-gray-400 line-through text-sm">De R$ 147,00 por apenas</p>
-                        <p class="font-title text-5xl font-extrabold text-brand-navy">R$ 15,00</p>
-                    </div>
-                    
-                    <a href="https://pay.wiapy.com/m4G04jANHowW" onclick="fbq('track', 'InitiateCheckout');" class="block w-full bg-brand-coral hover:bg-[#E05839] active:scale-95 text-white font-title font-bold text-xl py-5 rounded-xl shadow-lg transition-all text-center">
-                        COMPRAR AGORA
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. GARANTIA (Texto centralizado) -->
-    <section class="w-full py-16 bg-white text-center">
-        <div class="max-w-3xl mx-auto px-4 flex flex-col items-center">
-            <h2 class="font-title text-2xl md:text-3xl font-bold text-black mb-4">
-                Satisfação garantida<br>ou seu dinheiro de volta!
+            <!-- O que vão aprender -->
+            <h2 class="mx-auto mt-12 max-w-[350px] text-[21px] font-extrabold text-center text-gray-900 leading-snug">
+                O que as crianças vão aprender com a atividade
             </h2>
-            <p class="text-gray-600 text-sm md:text-base mb-6">
-                Você tem 15 dias para testar o material. Se achar que não valeu a pena, é só mandar uma mensagem no WhatsApp e devolvemos cada centavo.
-            </p>
-            <p class="text-gray-500 text-xs font-bold uppercase tracking-widest">Sem perguntas e sem burocracia!</p>
-        </div>
-    </section>
-
-    <!-- 10. FAQ (Barra amarela para título, perguntas abaixo em branco) -->
-    <section class="w-full bg-white pb-20">
-        <!-- Título em barra amarela -->
-        <div class="w-full bg-brand-mustard py-6 mb-10 text-center">
-            <h2 class="font-title text-2xl font-bold text-brand-navy">Dúvidas frequentes</h2>
-        </div>
-        
-        <div class="max-w-4xl mx-auto px-4">
-            <!-- Accordion items seguindo o design do Orbi mas funcionais -->
-            <div class="space-y-4">
-                <details class="group [&_summary::-webkit-details-marker]:hidden border-b border-gray-200 pb-4" open>
-                    <summary class="flex items-center justify-between cursor-pointer font-title font-bold text-black text-sm md:text-base">
-                        1. Para quem é esse produto?
-                        <span class="text-brand-coral group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="pt-3 text-gray-600 text-sm leading-relaxed">
-                        Este material foi desenvolvido para estudantes de todas as idades que precisam desenvolver ou melhorar o foco, a retenção de conteúdo e a organização diária durante os estudos.
-                    </div>
-                </details>
-
-                <details class="group [&_summary::-webkit-details-marker]:hidden border-b border-gray-200 pb-4">
-                    <summary class="flex items-center justify-between cursor-pointer font-title font-bold text-black text-sm md:text-base">
-                        2. Como funciona a garantia?
-                        <span class="text-brand-coral group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="pt-3 text-gray-600 text-sm leading-relaxed">
-                        Simples: se dentro do prazo estipulado você não perceber nenhuma melhora nos seus estudos, é só solicitar o reembolso. Devolvemos 100% do valor pago, sem complicações. Sua compra é totalmente segura.
-                    </div>
-                </details>
-
-                <details class="group [&_summary::-webkit-details-marker]:hidden border-b border-gray-200 pb-4">
-                    <summary class="flex items-center justify-between cursor-pointer font-title font-bold text-black text-sm md:text-base">
-                        3. Em quanto tempo verei resultados?
-                        <span class="text-brand-coral group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="pt-3 text-gray-600 text-sm leading-relaxed">
-                        A maioria dos alunos começa a mostrar melhoras visíveis entre 7 e 15 dias, especialmente com a aplicação diária das atividades por pelo menos 15 minutos. O segredo está na prática constante.
-                    </div>
-                </details>
-
-                <details class="group [&_summary::-webkit-details-marker]:hidden border-b border-gray-200 pb-4">
-                    <summary class="flex items-center justify-between cursor-pointer font-title font-bold text-black text-sm md:text-base">
-                        4. Como faço para acessar o produto depois da compra?
-                        <span class="text-brand-coral group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="pt-3 text-gray-600 text-sm leading-relaxed">
-                        Após a confirmação do pagamento, você receberá automaticamente um e-mail com o link de acesso aos materiais. Basta acessar, baixar os arquivos e aplicar as atividades.
-                    </div>
-                </details>
-
-                <details class="group [&_summary::-webkit-details-marker]:hidden border-b border-gray-200 pb-4">
-                    <summary class="flex items-center justify-between cursor-pointer font-title font-bold text-black text-sm md:text-base">
-                        5. Quais formas de pagamento são aceitas?
-                        <span class="text-brand-coral group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="pt-3 text-gray-600 text-sm leading-relaxed">
-                        Aceitamos PIX, Cartão de Crédito (em até 4x) e Boleto Bancário via plataforma segura. A liberação do material é feita imediatamente após a confirmação do pagamento.
-                    </div>
-                </details>
+            
+            <!-- Carrossel de Atividades -->
+            <div class="mx-auto mt-5 max-w-[282px] relative overflow-hidden rounded-md shadow-md border border-gray-100" id="solidos-carousel">
+                <div class="flex transition-transform duration-300 ease-out w-full" id="carousel-track" style="transform:translateX(0%)">
+                    <img src="https://auladivertida.online/assets/solido-01-COCQZHcW.webp" alt="Cartazes de sólidos geométricos 1" class="w-full flex-shrink-0 object-cover">
+                    <img src="https://auladivertida.online/assets/solido-02-Cq_dRN6q.webp" alt="Cartazes de sólidos geométricos 2" class="w-full flex-shrink-0 object-cover">
+                    <img src="https://auladivertida.online/assets/solido-03-Dyesil7c.webp" alt="Cartazes de sólidos geométricos 3" class="w-full flex-shrink-0 object-cover">
+                    <img src="https://auladivertida.online/assets/solido-04-CC7u6Bfq.webp" alt="Cartazes de sólidos geométricos 4" class="w-full flex-shrink-0 object-cover">
+                    <img src="https://auladivertida.online/assets/solido-05-D6XZ9Ypu.webp" alt="Cartazes de sólidos geométricos 5" class="w-full flex-shrink-0 object-cover">
+                    <img src="https://auladivertida.online/assets/solido-06-16ODGI0s.webp" alt="Cartazes de sólidos geométricos 6" class="w-full flex-shrink-0 object-cover">
+                    <img src="https://auladivertida.online/assets/solido-07-BG7kxIIG.png" alt="Cartazes de sólidos geométricos 7" class="w-full flex-shrink-0 object-cover">
+                </div>
+                
+                <button onclick="moveCarousel(-1)" aria-label="Anterior" class="absolute left-1 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m15 18-6-6 6-6"></path></svg>
+                </button>
+                <button onclick="moveCarousel(1)" aria-label="Próximo" class="absolute right-1 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m9 18 6-6-6-6"></path></svg>
+                </button>
+                
+                <div class="absolute bottom-2 inset-x-0 flex justify-center gap-1.5" id="carousel-dots">
+                    <button onclick="goToSlide(0)" aria-label="Ir para 1" class="w-1.5 h-1.5 rounded-full transition-colors bg-white"></button>
+                    <button onclick="goToSlide(1)" aria-label="Ir para 2" class="w-1.5 h-1.5 rounded-full transition-colors bg-white/50"></button>
+                    <button onclick="goToSlide(2)" aria-label="Ir para 3" class="w-1.5 h-1.5 rounded-full transition-colors bg-white/50"></button>
+                    <button onclick="goToSlide(3)" aria-label="Ir para 4" class="w-1.5 h-1.5 rounded-full transition-colors bg-white/50"></button>
+                    <button onclick="goToSlide(4)" aria-label="Ir para 5" class="w-1.5 h-1.5 rounded-full transition-colors bg-white/50"></button>
+                    <button onclick="goToSlide(5)" aria-label="Ir para 6" class="w-1.5 h-1.5 rounded-full transition-colors bg-white/50"></button>
+                    <button onclick="goToSlide(6)" aria-label="Ir para 7" class="w-1.5 h-1.5 rounded-full transition-colors bg-white/50"></button>
+                </div>
             </div>
 
-            <div class="mt-12 text-center">
-                <a href="#oferta" class="inline-block bg-[#00C851] hover:bg-[#007E33] active:scale-95 text-white font-title font-bold text-sm md:text-base py-3 px-8 rounded-lg shadow transition-all">
-                    QUERO O MATERIAL COMPLETO AGORA!
+            <script>
+                let currentSlide = 0;
+                const totalSlides = 7;
+                
+                function updateCarousel() {
+                    const track = document.getElementById('carousel-track');
+                    const dots = document.getElementById('carousel-dots').children;
+                    
+                    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    
+                    for (let i = 0; i < dots.length; i++) {
+                        if (i === currentSlide) {
+                            dots[i].className = "w-1.5 h-1.5 rounded-full transition-colors bg-white";
+                        } else {
+                            dots[i].className = "w-1.5 h-1.5 rounded-full transition-colors bg-white/50";
+                        }
+                    }
+                }
+                
+                function moveCarousel(direction) {
+                    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+                    updateCarousel();
+                }
+                
+                function goToSlide(index) {
+                    currentSlide = index;
+                    updateCarousel();
+                }
+            </script>
+            
+            <ul class="mx-auto mt-6 max-w-[340px] space-y-2.5">
+                <li class="flex gap-3 items-center rounded-2xl bg-brand-softMint/60 border border-brand-green/20 px-4 py-3">
+                    <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center bg-purple-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"></path><rect x="3" y="14" width="7" height="7" rx="1"></rect><circle cx="17.5" cy="17.5" r="3.5"></circle></svg>
+                    </span>
+                    <span class="text-[14.5px] leading-snug text-gray-800">Reconhecer os principais sólidos geométricos</span>
+                </li>
+                <li class="flex gap-3 items-center rounded-2xl bg-brand-softMint/60 border border-brand-green/20 px-4 py-3">
+                    <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center bg-sky-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </span>
+                    <span class="text-[14.5px] leading-snug text-gray-800">Visualizar melhor cada forma</span>
+                </li>
+                <li class="flex gap-3 items-center rounded-2xl bg-brand-softMint/60 border border-brand-green/20 px-4 py-3">
+                    <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center bg-brand-orange">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+                    </span>
+                    <span class="text-[14.5px] leading-snug text-gray-800">Entender faces, vértices e arestas de maneira mais concreta</span>
+                </li>
+                <li class="flex gap-3 items-center rounded-2xl bg-brand-softMint/60 border border-brand-green/20 px-4 py-3">
+                    <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center bg-red-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg>
+                    </span>
+                    <span class="text-[14.5px] leading-snug text-gray-800">Montar os sólidos com as próprias mãos</span>
+                </li>
+                <li class="flex gap-3 items-center rounded-2xl bg-brand-softMint/60 border border-brand-green/20 px-4 py-3">
+                    <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center bg-brand-green">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+                    </span>
+                    <span class="text-[14.5px] leading-snug text-gray-800">Fixar o conteúdo com uma atividade pronta para o caderno</span>
+                </li>
+            </ul>
+            
+            <!-- Transformação -->
+            <h2 class="mx-auto mt-12 max-w-[340px] text-[22px] font-bold text-center text-gray-900 leading-snug">
+                Veja como o material transforma a sala de aula ⭐
+            </h2>
+            
+            <div class="mx-auto mt-5 max-w-[352px] relative overflow-hidden rounded-2xl bg-gray-50 h-[220px]">
+                <div class="flex w-max animate-marquee h-full items-center hover:[animation-play-state:paused]">
+                    <!-- Grupo 1 -->
+                    <div class="flex-shrink-0 w-[220px] aspect-square px-1.5 h-full py-1.5">
+                        <img src="https://auladivertida.online/assets/sala-aula-rxn06cEn.png" alt="Sala 1" class="w-full h-full object-cover rounded-xl shadow-sm">
+                    </div>
+                    <div class="flex-shrink-0 w-[220px] aspect-square px-1.5 h-full py-1.5">
+                        <img src="https://auladivertida.online/assets/aluna-montando-CCIj8GFX.png" alt="Sala 2" class="w-full h-full object-cover rounded-xl shadow-sm">
+                    </div>
+                    <div class="flex-shrink-0 w-[220px] aspect-square px-1.5 h-full py-1.5">
+                        <img src="https://auladivertida.online/assets/sala-aula-02-CFfx8qnR.png" alt="Sala 3" class="w-full h-full object-cover rounded-xl shadow-sm">
+                    </div>
+                    <!-- Grupo 2 (Cópia para o loop infinito) -->
+                    <div class="flex-shrink-0 w-[220px] aspect-square px-1.5 h-full py-1.5">
+                        <img src="https://auladivertida.online/assets/sala-aula-rxn06cEn.png" alt="Sala 1" class="w-full h-full object-cover rounded-xl shadow-sm">
+                    </div>
+                    <div class="flex-shrink-0 w-[220px] aspect-square px-1.5 h-full py-1.5">
+                        <img src="https://auladivertida.online/assets/aluna-montando-CCIj8GFX.png" alt="Sala 2" class="w-full h-full object-cover rounded-xl shadow-sm">
+                    </div>
+                    <div class="flex-shrink-0 w-[220px] aspect-square px-1.5 h-full py-1.5">
+                        <img src="https://auladivertida.online/assets/sala-aula-02-CFfx8qnR.png" alt="Sala 3" class="w-full h-full object-cover rounded-xl shadow-sm">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mx-auto mt-10 max-w-[352px]">
+                <img src="https://auladivertida.online/assets/como-funciona-DhPNDipL.png" alt="Como funciona" class="w-full rounded-xl">
+            </div>
+            
+            <!-- Ideal para você que -->
+            <h2 class="mx-auto mt-12 max-w-[340px] text-xl font-extrabold text-center text-gray-900 leading-snug">
+                Esse material é ideal para você que:
+            </h2>
+            
+            <ul class="mx-auto mt-5 max-w-[340px] space-y-2.5">
+                <li class="flex items-center gap-3 rounded-2xl bg-white border-2 border-dashed border-brand-green/30 px-3 py-2.5 shadow-sm">
+                    <span class="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center rotate-[-4deg] bg-purple-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    </span>
+                    <span class="text-[15px] leading-snug text-gray-800">Vai trabalhar sólidos geométricos com a turma</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ml-auto text-brand-orange flex-shrink-0"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg>
+                </li>
+                <li class="flex items-center gap-3 rounded-2xl bg-white border-2 border-dashed border-brand-green/30 px-3 py-2.5 shadow-sm">
+                    <span class="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center rotate-[-4deg] bg-amber-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                    </span>
+                    <span class="text-[15px] leading-snug text-gray-800">Quer uma aula mais prática, visual e participativa</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ml-auto text-brand-orange flex-shrink-0"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg>
+                </li>
+                <li class="flex items-center gap-3 rounded-2xl bg-white border-2 border-dashed border-brand-green/30 px-3 py-2.5 shadow-sm">
+                    <span class="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center rotate-[-4deg] bg-pink-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"></path><rect x="6" y="14" width="12" height="8" rx="1"></rect></svg>
+                    </span>
+                    <span class="text-[15px] leading-snug text-gray-800">Precisa de um material pronto para imprimir</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ml-auto text-brand-orange flex-shrink-0"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg>
+                </li>
+                <li class="flex items-center gap-3 rounded-2xl bg-white border-2 border-dashed border-brand-green/30 px-3 py-2.5 shadow-sm">
+                    <span class="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center rotate-[-4deg] bg-sky-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                    </span>
+                    <span class="text-[15px] leading-snug text-gray-800">Não quer perder tempo criando atividade do zero</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ml-auto text-brand-orange flex-shrink-0"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg>
+                </li>
+                <li class="flex items-center gap-3 rounded-2xl bg-white border-2 border-dashed border-brand-green/30 px-3 py-2.5 shadow-sm">
+                    <span class="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center rotate-[-4deg] bg-brand-green">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                    </span>
+                    <span class="text-[15px] leading-snug text-gray-800">Quer ajudar os alunos a entenderem melhor o conteúdo</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ml-auto text-brand-orange flex-shrink-0"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg>
+                </li>
+            </ul>
+
+            <!-- Passo a Passo -->
+            <div class="mx-auto mt-12 flex flex-col items-center">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-softMint border border-brand-green/30 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-brand-greenDark">✏️ Passo a passo</span>
+                <h2 class="mt-3 text-[26px] font-extrabold text-center leading-tight">Como usar <span class="text-brand-orange">na aula</span> 🎒</h2>
+            </div>
+            
+            <ol class="mx-auto mt-5 max-w-[340px] space-y-3">
+                <li class="relative flex items-center gap-3 rounded-2xl px-3 py-3 shadow-sm bg-blue-50">
+                    <div class="relative flex-shrink-0">
+                        <span class="w-11 h-11 rounded-2xl flex items-center justify-center bg-blue-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M2 3h20"></path><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"></path><path d="m7 21 5-5 5 5"></path></svg>
+                        </span>
+                        <span class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-white border-2 text-[10px] font-extrabold flex items-center justify-center border-blue-500 text-blue-500">1</span>
+                    </div>
+                    <span class="text-[14.5px] leading-snug text-gray-800">Apresente os cartazes para explicar cada sólido geométrico</span>
+                </li>
+                <li class="relative flex items-center gap-3 rounded-2xl px-3 py-3 shadow-sm bg-pink-50">
+                    <div class="relative flex-shrink-0">
+                        <span class="w-11 h-11 rounded-2xl flex items-center justify-center bg-pink-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><circle cx="6" cy="6" r="3"></circle><path d="M8.12 8.12 12 12"></path><path d="M20 4 8.12 15.88"></path><circle cx="6" cy="18" r="3"></circle><path d="M14.8 14.8 20 20"></path></svg>
+                        </span>
+                        <span class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-white border-2 text-[10px] font-extrabold flex items-center justify-center border-pink-500 text-pink-500">2</span>
+                    </div>
+                    <span class="text-[14.5px] leading-snug text-gray-800">Monte os modelos com os alunos para deixar a aula mais prática</span>
+                </li>
+                <li class="relative flex items-center gap-3 rounded-2xl px-3 py-3 shadow-sm bg-amber-50">
+                    <div class="relative flex-shrink-0">
+                        <span class="w-11 h-11 rounded-2xl flex items-center justify-center bg-amber-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M13 21h8"></path><path d="m15 5 4 4"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
+                        </span>
+                        <span class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-white border-2 text-[10px] font-extrabold flex items-center justify-center border-amber-500 text-amber-500">3</span>
+                    </div>
+                    <span class="text-[14.5px] leading-snug text-gray-800">Use a atividade no caderno para fixar o conteúdo</span>
+                </li>
+                <li class="relative flex items-center gap-3 rounded-2xl px-3 py-3 shadow-sm bg-green-50">
+                    <div class="relative flex-shrink-0">
+                        <span class="w-11 h-11 rounded-2xl flex items-center justify-center bg-brand-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg>
+                        </span>
+                        <span class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-white border-2 text-[10px] font-extrabold flex items-center justify-center border-brand-green text-brand-green">4</span>
+                    </div>
+                    <span class="text-[14.5px] leading-snug text-gray-800">Reaproveite o PDF sempre que trabalhar esse tema novamente</span>
+                </li>
+            </ol>
+
+            <!-- O que vem no Kit -->
+            <div class="mx-auto mt-12 flex flex-col items-center">
+                <h2 class="relative flex flex-col items-center text-center">
+                    <span class="flex items-center gap-2 text-[15px] font-bold uppercase tracking-[0.18em] text-brand-greenDark/70">
+                        O que vem no
+                    </span>
+                    <span class="mt-2 text-[24px] font-black leading-tight text-brand-greenDark sm:text-[28px]">
+                        ✨ Kit de Sólidos Geométricos 🎉
+                    </span>
+                </h2>
+            </div>
+            
+            <img src="https://auladivertida.online/assets/mockup-kit-solidos-M_rZK8Tz.webp" alt="Mockup" class="mx-auto mt-5 w-full max-w-[224px] h-auto">
+            
+            <ul class="mx-auto mt-5 max-w-[340px] space-y-4 text-sm">
+                <li class="flex gap-3 items-start text-[15px] text-gray-800">
+                    <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-brand-green flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-white"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </span>
+                    <span><span class="font-semibold">7 cartazes em A4 com explicações visuais</span><br><span class="text-gray-500 text-sm">Para apresentar os sólidos geométricos de forma clara durante a aula.</span></span>
+                </li>
+                <li class="flex gap-3 items-start text-[15px] text-gray-800">
+                    <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-brand-green flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-white"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </span>
+                    <span><span class="font-semibold">5 modelos de sólidos geométricos para montar</span><br><span class="text-gray-500 text-sm">Para os alunos recortarem, dobrarem e montarem com as próprias mãos.</span></span>
+                </li>
+                <li class="flex gap-3 items-start text-[15px] text-gray-800">
+                    <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-brand-green flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-white"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </span>
+                    <span><span class="font-semibold">Atividade completa para o caderno</span><br><span class="text-gray-500 text-sm">Para ajudar na fixação do conteúdo depois da explicação.</span></span>
+                </li>
+                <li class="flex gap-3 items-start text-[15px] text-gray-800">
+                    <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-brand-green flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-white"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </span>
+                    <span><span class="font-semibold">Arquivo em PDF</span><br><span class="text-gray-500 text-sm">Você pode salvar e imprimir quantas vezes quiser.</span></span>
+                </li>
+                <li class="flex gap-3 items-start text-[15px] text-gray-800">
+                    <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-brand-green flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-white"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </span>
+                    <span><span class="font-semibold">Entrega no WhatsApp e e-mail</span><br><span class="text-gray-500 text-sm">Após a compra, você recebe o acesso ao material digital.</span></span>
+                </li>
+            </ul>
+            
+            <div class="mx-auto mt-1 flex flex-col items-center gap-0 text-brand-orange">
+                <span class="text-[13px] font-extrabold uppercase tracking-wider rotate-[-3deg] bg-brand-softMint px-3 py-1 rounded-full border-2 border-dashed border-brand-green/40 text-brand-greenDark">👇 Garanta o seu agora</span>
+                <svg class="w-10 h-12 animate-bounce drop-shadow-md mt-1" viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M24 4 C 18 18, 30 30, 24 46" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 6"></path>
+                    <path d="M12 42 L24 58 L36 42" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+                </svg>
+            </div>
+            
+            <div id="ofertas" class="mt-2 w-[105%] -ml-[2.5%] grid grid-cols-2 gap-2 items-start scroll-mt-6">
+                <!-- Oferta Básica -->
+                <div class="relative rounded-2xl bg-white border-2 border-brand-softMint shadow-md overflow-hidden flex flex-col">
+                    <div class="bg-brand-softMint text-brand-greenDark text-[10px] font-black px-2 py-1.5 uppercase tracking-wider text-center">Oferta Básica</div>
+                    <div class="relative bg-white px-3 pt-3 pb-2 overflow-hidden">
+                        <div class="text-center mb-2 min-h-[58px] flex flex-col justify-center">
+                            <h3 class="text-[13.5px] font-extrabold text-gray-900 leading-tight">Kit Sólidos Geométricos</h3>
+                            <p class="mt-1 text-[10px] text-gray-500 leading-tight">Material em PDF pronto para imprimir e usar com a turma.</p>
+                        </div>
+                        <img src="https://auladivertida.online/assets/mockup-kit-solidos-M_rZK8Tz.webp" alt="Mockup do Kit de Sólidos Geométricos" class="relative z-10 w-[90%] mx-auto rounded-xl"/>
+                    </div>
+                    <div class="px-3 py-3 flex flex-col">
+                        <ul class="space-y-1.5 mb-3">
+                            <li class="flex items-start gap-1.5 px-1.5 py-1">
+                                <span class="mt-0.5 w-4 h-4 flex-shrink-0 bg-brand-softMint rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 text-brand-greenDark"><path d="M20 6 9 17l-5-5"></path></svg>
+                                </span>
+                                <span class="text-[11px] text-gray-700 leading-snug">7 cartazes em A4 com explicações visuais</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1">
+                                <span class="mt-0.5 w-4 h-4 flex-shrink-0 bg-brand-softMint rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 text-brand-greenDark"><path d="M20 6 9 17l-5-5"></path></svg>
+                                </span>
+                                <span class="text-[11px] text-gray-700 leading-snug">5 modelos de sólidos para montar</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1">
+                                <span class="mt-0.5 w-4 h-4 flex-shrink-0 bg-brand-softMint rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 text-brand-greenDark"><path d="M20 6 9 17l-5-5"></path></svg>
+                                </span>
+                                <span class="text-[11px] text-gray-700 leading-snug">Atividade completa pronta para o caderno</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1">
+                                <span class="mt-0.5 w-4 h-4 flex-shrink-0 bg-brand-softMint rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 text-brand-greenDark"><path d="M20 6 9 17l-5-5"></path></svg>
+                                </span>
+                                <span class="text-[11px] text-gray-700 leading-snug">Arquivo em PDF para imprimir quantas vezes quiser</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1">
+                                <span class="mt-0.5 w-4 h-4 flex-shrink-0 bg-brand-softMint rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 text-brand-greenDark"><path d="M20 6 9 17l-5-5"></path></svg>
+                                </span>
+                                <span class="text-[11px] text-gray-700 leading-snug">Entrega no WhatsApp e e-mail após a compra</span>
+                            </li>
+                        </ul>
+                        <div class="bg-brand-softMint/70 rounded-xl px-2 py-2 text-center mb-2">
+                            <p class="text-gray-500 text-[10px]">De <span class="line-through">R$29</span> por</p>
+                            <div class="mt-1 flex items-center justify-center">
+                                <span class="text-[30px] font-extrabold text-brand-greenDark leading-none">R$10</span>
+                            </div>
+                            <p class="mt-1 text-[9px] text-brand-greenDark font-bold uppercase tracking-wide">Pagamento único à vista</p>
+                        </div>
+                        <a href="https://pay.wiapy.com/GQrk8TEfs3H" onclick="fbq('track', 'InitiateCheckout'); openUpsellModal(event);" class="animate-cta-breathe block text-center w-full bg-brand-green hover:bg-brand-greenDark text-white font-extrabold py-3 rounded-xl shadow-lg transition-colors active:scale-95 uppercase tracking-wide text-[12px]">
+                            QUERO O MEU KIT
+                        </a>
+                        <div class="mt-2 flex items-center justify-center gap-1 text-[9px] text-gray-500 text-center leading-tight">🔒 Compra segura • Acesso imediato</div>
+                    </div>
+                </div>
+
+                <!-- Super Oferta -->
+                <div class="relative rounded-2xl bg-white border-2 border-brand-orange/50 shadow-lg overflow-hidden flex flex-col">
+                    <div class="bg-brand-orange text-white text-[10px] font-black px-2 py-1.5 shadow-sm uppercase tracking-wider text-center">🔥 Mais Vendido</div>
+                    <div class="relative bg-white px-3 pt-3 pb-2 overflow-hidden">
+                        <div class="text-center mb-2 min-h-[58px]">
+                            <span class="inline-block text-[9px] uppercase font-bold text-brand-orange tracking-widest">✨ Super Oferta</span>
+                            <h3 class="mt-1 text-[13.5px] font-extrabold text-gray-900 leading-tight">Kit Sólidos + 90 atividades extras para o ano todo!</h3>
+                        </div>
+                        <img src="https://auladivertida.online/assets/combo-premium-v2-BQxwgObB.webp" alt="Kit Sólidos + 90 atividades extras" class="relative z-10 w-[90%] mx-auto rounded-xl"/>
+                    </div>
+                    <div class="px-3 py-3 flex flex-col">
+                        <ul class="grid grid-cols-1 gap-1 mb-3">
+                            <li class="flex items-start gap-1.5 px-1.5 py-1 rounded-md bg-brand-orange/10">
+                                <span class="text-[12px] flex-shrink-0 leading-snug">✅</span>
+                                <span class="text-[11px] leading-snug font-bold text-gray-900">Tudo do Kit Sólidos Geométricos</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1 rounded-md">
+                                <span class="text-[12px] flex-shrink-0 leading-snug">⭐</span>
+                                <span class="text-[11px] leading-snug text-gray-700">90 atividades dinâmicas (3º ao 5º)</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1 rounded-md">
+                                <span class="text-[12px] flex-shrink-0 leading-snug">🎮</span>
+                                <span class="text-[11px] leading-snug text-gray-700">Jogo da Velha das 4 Operações</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1 rounded-md">
+                                <span class="text-[12px] flex-shrink-0 leading-snug">🎯</span>
+                                <span class="text-[11px] leading-snug text-gray-700">Bingo da Multiplicação</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1 rounded-md">
+                                <span class="text-[12px] flex-shrink-0 leading-snug">🔢</span>
+                                <span class="text-[11px] leading-snug text-gray-700">Numerais com Material Dourado</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1 rounded-md">
+                                <span class="text-[12px] flex-shrink-0 leading-snug">📖</span>
+                                <span class="text-[11px] leading-snug text-gray-700">Explicação de todas as dinâmicas</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1 rounded-md">
+                                <span class="text-[12px] flex-shrink-0 leading-snug">📁</span>
+                                <span class="text-[11px] leading-snug text-gray-700">PDF para imprimir quantas vezes quiser</span>
+                            </li>
+                            <li class="flex items-start gap-1.5 px-1.5 py-1 rounded-md">
+                                <span class="text-[12px] flex-shrink-0 leading-snug">🏫</span>
+                                <span class="text-[11px] leading-snug text-gray-700">Ideal para sala de aula e reforço</span>
+                            </li>
+                        </ul>
+                        <div class="bg-brand-green/5 border-2 border-dashed border-brand-green/40 rounded-xl px-2 py-2 text-center mb-2 shadow-inner">
+                            <p class="text-gray-500 text-[11px] font-semibold">De <span class="line-through">R$49,90</span> por</p>
+                            <div class="mt-1 flex items-center justify-center">
+                                <span class="text-[38px] font-black text-brand-green leading-none drop-shadow-sm">R$27</span>
+                            </div>
+                            <p class="mt-1 text-[10px] text-brand-green font-bold uppercase tracking-wider">à vista</p>
+                        </div>
+                        <a href="https://pay.wiapy.com/6a9ddcbd94139c3648758618" onclick="fbq('track', 'InitiateCheckout');" class="animate-cta-breathe block text-center w-full bg-brand-orange hover:bg-[#ea580c] hover:animate-none text-white font-extrabold py-3 rounded-xl shadow-lg transition-all active:scale-95 uppercase tracking-wide text-[13px]">
+                            QUERO O MEU KIT
+                        </a>
+                        <div class="mt-2 flex items-center justify-center gap-1 text-[9px] text-gray-500 text-center leading-tight">🔒 Acesso imediato • Compra 100% segura</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-brand-softMint/50 rounded-2xl p-4 flex items-start gap-3 border border-brand-green/20">
+                <span class="w-10 h-10 bg-brand-green rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </span>
+                <p class="text-[13px] font-semibold text-brand-greenDark mt-1">
+                    Após a compra, você recebe acesso ao Material em PDF diretamente no seu WhatsApp e E-MAIL
+                </p>
+            </div>
+            
+            <!-- Dúvidas Frequentes -->
+            <h2 class="mx-auto mt-12 text-[22px] font-bold text-center text-gray-900 mb-6">
+                Dúvidas Frequentes
+            </h2>
+            
+            <div class="space-y-3">
+                <details class="bg-gray-50 rounded-xl p-4 border border-gray-100 group cursor-pointer">
+                    <summary class="font-semibold text-[15px] flex justify-between items-center outline-none">
+                        Como vou receber o material?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-green transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <p class="mt-3 text-[14px] text-gray-600">O material será enviado automaticamente para o seu e-mail e WhatsApp logo após a confirmação do pagamento.</p>
+                </details>
+                
+                <details class="bg-gray-50 rounded-xl p-4 border border-gray-100 group cursor-pointer">
+                    <summary class="font-semibold text-[15px] flex justify-between items-center outline-none">
+                        O material é físico ou digital?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-green transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <p class="mt-3 text-[14px] text-gray-600">O material é 100% digital, em formato PDF, pronto para você baixar e usar.</p>
+                </details>
+                
+                <details class="bg-gray-50 rounded-xl p-4 border border-gray-100 group cursor-pointer" open>
+                    <summary class="font-semibold text-[15px] flex justify-between items-center outline-none">
+                        Preciso de impressora?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-green transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <p class="mt-3 text-[14px] text-gray-600">Você pode imprimir em casa, na escola ou em uma gráfica.</p>
+                </details>
+
+                <details class="bg-gray-50 rounded-xl p-4 border border-gray-100 group cursor-pointer">
+                    <summary class="font-semibold text-[15px] flex justify-between items-center outline-none">
+                        Posso imprimir mais de uma vez?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-green transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <p class="mt-3 text-[14px] text-gray-600">Sim! Uma vez baixado, o PDF é seu e você pode imprimir quantas vezes precisar para seus alunos.</p>
+                </details>
+
+                <details class="bg-gray-50 rounded-xl p-4 border border-gray-100 group cursor-pointer">
+                    <summary class="font-semibold text-[15px] flex justify-between items-center outline-none">
+                        Serve para qual turma?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-green transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <p class="mt-3 text-[14px] text-gray-600">Ideal para turmas do Ensino Fundamental I (3º ao 5º ano) que estão aprendendo formas geométricas espaciais.</p>
+                </details>
+
+                <details class="bg-gray-50 rounded-xl p-4 border border-gray-100 group cursor-pointer">
+                    <summary class="font-semibold text-[15px] flex justify-between items-center outline-none">
+                        O material já vem pronto?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-green transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <p class="mt-3 text-[14px] text-gray-600">Sim! O PDF já está formatado em tamanho A4, com os moldes prontos para recortar e as atividades prontas para usar.</p>
+                </details>
+
+                <details class="bg-gray-50 rounded-xl p-4 border border-gray-100 group cursor-pointer">
+                    <summary class="font-semibold text-[15px] flex justify-between items-center outline-none">
+                        Quais formas de pagamento são aceitas?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-green transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <p class="mt-3 text-[14px] text-gray-600">Aceitamos PIX (aprovação imediata e envio na hora), Cartão de Crédito e Boleto Bancário.</p>
+                </details>
+
+                <details class="bg-gray-50 rounded-xl p-4 border border-gray-100 group cursor-pointer">
+                    <summary class="font-semibold text-[15px] flex justify-between items-center outline-none">
+                        Tem garantia?
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-green transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <p class="mt-3 text-[14px] text-gray-600">Sim! Você tem 7 dias de garantia incondicional.</p>
+                </details>
+            </div>
+            
+            <!-- Final CTA Section -->
+            <div class="mt-16 mb-8 text-center">
+                <h2 class="text-[24px] font-extrabold leading-tight mb-4">
+                    Deixe sua aula de Sólidos Geométricos mais visual e prática
+                </h2>
+                <p class="text-[15px] text-gray-600 mb-8">
+                    Receba o material pronto em PDF, imprima e use com seus alunos.
+                </p>
+                <a href="#ofertas" onclick="fbq('track', 'InitiateCheckout');" class="inline-block w-full max-w-[350px] bg-brand-green hover:bg-brand-greenDark transition-colors text-white font-extrabold py-4 px-6 rounded-xl text-[15px] uppercase tracking-wide shadow-lg">
+                    QUERO RECEBER O MATERIAL
+                </a>
+            </div>
+            
+            <!-- Footer/Suporte -->
+            <div class="mt-12 text-center text-[12px] text-gray-500 border-t border-gray-100 pt-8 pb-4">
+                <p class="font-bold mb-1 text-gray-700">Precisa de Ajuda?</p>
+                <p class="max-w-[300px] mx-auto">Envie um e-mail para <a href="mailto:profstudy.enem@gmail.com" class="text-brand-green font-semibold">profstudy.enem@gmail.com</a> e nossa equipe responderá rapidamente para ajudá-lo com qualquer dúvida ou problema.</p>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Upsell Modal -->
+    <div id="upsellModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-opacity">
+        <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-2xl relative">
+            <button onclick="closeUpsellModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 transition-colors bg-gray-100 rounded-full w-7 h-7 flex items-center justify-center">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="text-center">
+                <span class="inline-block bg-brand-orange text-white text-[10px] font-black px-2 py-1 uppercase tracking-wider rounded animate-pulse">ESPERE! NÃO FECHE ESSA PÁGINA</span>
+                
+                <h2 class="mt-4 text-[17px] font-extrabold text-gray-900 leading-tight">
+                    Leve o <span class="text-brand-orange">Kit Sólidos + 90 Atividades Extras</span> com um Super Desconto!
+                </h2>
+                
+                <img src="https://auladivertida.online/assets/combo-premium-v2-BQxwgObB.webp" alt="Kit Completo" class="w-[85%] mx-auto mt-4 mb-3 rounded-xl shadow-md border border-gray-100">
+
+                <p class="text-[13px] text-gray-700 font-medium mb-5 px-2">
+                    Adicione o material completo (nosso kit mais vendido) por <strong class="text-brand-greenDark text-[16px]">apenas R$ 16 a mais</strong>!
+                </p>
+
+                <a href="https://pay.wiapy.com/jce-GO-cAsP" onclick="fbq('track', 'InitiateCheckout');" class="animate-cta-breathe block w-full bg-brand-orange hover:bg-[#ea580c] hover:animate-none text-white font-extrabold py-3.5 rounded-xl shadow-lg transition-all active:scale-95 uppercase tracking-wide text-[12px] mb-3 border-b-4 border-[#c2410a]">
+                    SIM, QUERO ADICIONAR POR +R$16
+                </a>
+
+                <a href="https://pay.wiapy.com/GQrk8TEfs3H" onclick="fbq('track', 'InitiateCheckout');" class="block text-[11px] text-gray-400 hover:text-gray-600 underline font-medium mt-4">
+                    Não, obrigado. Quero apenas o plano básico.
                 </a>
             </div>
         </div>
-    </section>
-
-    <!-- 11. RODAPÉ -->
-    <footer class="bg-gray-100 py-8 px-4 text-center text-gray-500 text-xs border-t border-gray-200">
-        <div class="max-w-4xl mx-auto">
-            <p class="font-bold text-gray-700 mb-2">Study &copy; 2026. Todos os direitos reservados.</p>
-            <p class="max-w-xl mx-auto">
-                Este site não faz parte do Facebook, Google ou suas entidades. Os resultados podem variar de pessoa para pessoa.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Botão Flutuante Mobile (Opcional, escondido perto do rodapé) -->
-    <div class="fixed bottom-0 left-0 w-full p-4 bg-white/95 backdrop-blur-md border-t border-gray-200 z-50 lg:hidden shadow-[0_-10px_20px_rgba(0,0,0,0.05)] transform transition-transform duration-300 translate-y-0" id="sticky-cta">
-        <a href="#oferta" class="block w-full bg-brand-coral text-white font-title font-bold text-center py-4 rounded-xl shadow-md">
-            QUERO COMEÇAR AGORA
-        </a>
     </div>
 
     <script>
-        const stickyCta = document.getElementById('sticky-cta');
-        const footer = document.querySelector('footer');
+        function openUpsellModal(e) {
+            e.preventDefault();
+            document.getElementById('upsellModal').classList.remove('hidden');
+        }
         
-        window.addEventListener('scroll', () => {
-            const footerRect = footer.getBoundingClientRect();
-            if (footerRect.top <= window.innerHeight) {
-                stickyCta.classList.add('translate-y-full');
-            } else {
-                stickyCta.classList.remove('translate-y-full');
-            }
-        });
-
-        // Lógica do Carrossel de Atividades
-        function scrollCarousel(direction) {
-            const carousel = document.getElementById('atividades-carousel');
-            const itemWidth = carousel.querySelector('.carousel-item').offsetWidth + 24; // 24px is the gap
-            carousel.scrollBy({ left: direction * itemWidth, behavior: 'smooth' });
+        function closeUpsellModal() {
+            document.getElementById('upsellModal').classList.add('hidden');
         }
     </script>
 </body>
